@@ -33,7 +33,7 @@ func main() {
 `Compile` merupakan jantung dari paket `regexp`. Setiap regular expression harus disiapkan dengan
 `Compile` atau fungsi sejenisnya `MustCompile`. Fungsi `MustCompile` sama dengan `Compile`, tapi
 akan panic jika regular expression tidak dapat dikompil. Karena error di `MustCompile` berujung ke
-panic, nilai balik kedua berupa error ditiadakan. Hal ini memudahkan penyambungan `MustCall` dengan
+panic, nilai balik kedua berupa error ditiadakan. Hal ini memudahkan penyambungan `MustCompile` dengan
 fungsi match yang Anda inginkan, seperti ditunjukkan dibawah: (Tapi Anda perlu menghindari kompilasi
 berulang dalam _looping_ dengan alasan performa)
 
