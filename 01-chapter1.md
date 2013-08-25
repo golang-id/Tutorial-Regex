@@ -236,7 +236,7 @@ dapat menimbulkan hasil yang tidak sesuai harapan.
 
 ~~~go
 s := "Firstname Lastname"
-r, err := regexp.Compile(`\w+\s\w+)
+r, err := regexp.Compile(`\w+\s\w+`)
 res := r.FindString(s)
 // Mencetak Firstname Lastname
 fmt.Printf("%v", res)
@@ -246,7 +246,7 @@ Tapi jika `s` dari user input, mungkin saja bisa ada dua spasi:
 
 ~~~go
 s := "Firstname  Lastname"
-r, err := regexp.Compile(`\w+\s\w+)
+r, err := regexp.Compile(`\w+\s\w+`)
 res := r.FindString(s)
 // Mencetak string kosong
 fmt.Printf("%v", res)
