@@ -1,7 +1,7 @@
 Bagian 1: Dasar
 ===============
 
-## Pencocokan Sederhana
+## Pencocokkan Sederhana
 
 Anda ingin mengetahui apakah sebuah string sesuai dengan regular expression. Fungsi `MatchString` akan
 mengembalikan `true` jika argumen string sesuai dengan regular expression yang Anda buat dengan `Compile`.
@@ -17,7 +17,7 @@ import (
 func main() {
 	r, err := regexp.Compile(`Hello`)
 	if err != nil {
-		fmt.Printf("There is a problem with your regexp.\n")
+		fmt.Printf("Ada yang salah dengan regex-mu.\n")
 		return
 	}
 
@@ -32,10 +32,10 @@ func main() {
 
 `Compile` merupakan jantung dari paket `regexp`. Setiap regular expression harus disiapkan dengan
 `Compile` atau fungsi sejenisnya `MustCompile`. Fungsi `MustCompile` sama dengan `Compile`, tapi
-akan panic jika regular expression tidak dapat dikompil. Karena error di `MustCompile` berujung ke
-panic, nilai balik kedua berupa error ditiadakan. Hal ini memudahkan penyambungan `MustCompile` dengan
-fungsi match yang Anda inginkan, seperti ditunjukkan dibawah: (Tapi Anda perlu menghindari kompilasi
-berulang dalam _looping_ dengan alasan performa)
+akan `panic` jika regular expression tidak dapat dikompilasi. Karena error di `MustCompile` diakhiri dengan
+`panic`, maka nilai balik kedua berupa error ditiadakan. Hal ini memudahkan penyambungan `MustCompile` dengan
+fungsi match yang Anda inginkan, seperti ditunjukkan di bawah: (Tapi Anda perlu menghindari kompilasi
+berulang dalam _looping_ dengan alasan performansi)
 
 ~~~go
 package main
@@ -70,7 +70,7 @@ regexp.MustCompile(0x4de620, 0x4, 0x4148e8)
     go/src/pkg/regexp/regexp.go:207 +0x13f
 ~~~
 
-Fungsi `Compile` mengembalikan error di nilai balik kedua. Pada tutorial ini saya akan mengabaikan error,
+Fungsi `Compile` mengembalikan `error` di nilai balik kedua. Pada tutorial ini saya akan mengabaikan error,
 karena regex yang disajikan disini sempurna ;-). Mungkin Anda boleh saja mengikuti cara ini jika regexp-nya literal, tapi kalau regexp berasal dari input Anda sebaiknya mengecek nilai error.
 
 Tutorial selanjutnya akan mengabaikan nilai error agar lebih ringkas.
@@ -177,7 +177,7 @@ fmt.Printf("%v", res)
 
 ## Karakter Spesial Literal
 
-Menemukan satu backslash '\': Harus di-_esape_ di regex dan di string.
+Menemukan sebuah backslash '\': Harus di-_escape_ di regex dan di string.
 
 ~~~go
 r, err := regexp.Compile(`C:\\`)
